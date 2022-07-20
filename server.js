@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const db = require("./db");
+const db = require("./Develop/db");
 
 const startMenu = {
   name: "functionality",
