@@ -5,13 +5,14 @@ const util = require("util");
 require("dotenv").config();
 
 const db = mysql.createConnection({
-  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 8889,
+  port: process.env.DB_PORT,
+  host: process.env.DB_HOST,
 });
 
 db.query = util.promisify(db.query);
+db.connect = util.promisify(db.connect);
 
 module.exports = db;
