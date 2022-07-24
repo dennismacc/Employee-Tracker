@@ -1,18 +1,20 @@
 // this is where we create a sql connection, and export the sql object
 const mysql = require("mysql2");
-const util = require("util");
+// const util = require("util");
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const db = mysql.createConnection({
-  database: process.env.DB_NAME,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-  host: process.env.DB_HOST,
+  host: "localhost",
+  user: 'root',
+  password: 'root',
+  database: 'employees',
+  // port: process.env.DB_PORT,
 });
 
-db.query = util.promisify(db.query);
-db.connect = util.promisify(db.connect);
+// db.query = util.promisify(db.query);
+db.connect((err) => { 
+  console.log(err)
+}); 
 
 module.exports = db;
