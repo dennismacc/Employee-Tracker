@@ -45,7 +45,7 @@ const addDepartment = () => {
 // Role functions
 // show all roles
 const showAllRoles = () => {
-  db.query("SELECT * FROM roles").then((results) => {
+  db.query("SELECT * FROM role").then((results) => {
     console.log("----------- ROLES -----------");
     console.table(results);
     console.log("----------- ROLES -----------");
@@ -154,7 +154,65 @@ const addEmployee = () => {
   );
   // inquirer.prompt()
 };
+// update employee
+const updateEmployee = () => {
+  db.query(`SELECT id, first_name, last_name FROM employee`).then((results) => {
+    const choices = results.map((emp) => {
+      return {
+        name: `${emp.first_name} ${emp.last_name}`,
+        value: emp.id,
+      };
+    });
+    const updateEmployeePrompt = [
+      {
+        name: "employee_id",
+        message: "Which employee would you like to update?",
+        type: "list",
+        choices,
+      },
+      {
+        name: "first_name",
+        message: "What is the employee's new first name?",
+      },
+      {
+        name: "last_name",
+        message: "What is the employee's new last name?",
+      },
+      {
+        name: "role_id",
+        message: "What is the employee's new title?",
+        type: "list",
+        choices: [
+          { name: "Sales Lead", value: 1 },
+          { name: "Salesperson", value: 2 },
+          { name: "Inside Sales Coordinator", value: 3 },
+          { name: "Inside Sales Rep", value: 4 },
+          { name: "Sales Manager", value: 5 },
+          { name: "Sales Director", value: 6 },
+        ],
+      },
+      {
+        name: "manager_id",
+        message: "Who is this employee's new manager?",
+        type: "list",
+        choices: [
+          ...choices,
+          { name: "No Manager, this person is a bawss!", value: null },
+        ],
+      },
+    ];
+    inquirer.prompt(updateEmployeePrompt).then((results) => {
+      console.log("RESULTS --- ", results);
+      db.query(
+        `UPDATE employee SET first_name='${results.first_name}', last_name='${results.last_name}', role_id='${results.role_id}', manager_id='${results.manager_id}' WHERE id='${results.employee_id}'`
+      );
+      setTimeout(start, 3000);
+    });
+  });
+};
+// delete employee
 
+// Start Menu Prompt
 function start() {
   inquirer.prompt(startMenu).then((response) => {
     //based on user choice, we're going to maybe ask additional questions or do some db operation
@@ -171,6 +229,8 @@ function start() {
         return showAllEmployees();
       case "Add Employee":
         return addEmployee();
+      case "Update Employee":
+        return updateEmployee();
     }
   });
 }
