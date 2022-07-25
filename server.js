@@ -9,9 +9,11 @@ const startMenu = {
     "Show All Departments",
     "Show All Roles",
     "Show All Employees",
+    "Add Department",
+    "Add Role",
     "Add Employee",
     "Update Employee",
-    "Delete an Employee",
+    // "Delete an Employee",
     "Exit",
   ],
 };
@@ -212,29 +214,29 @@ const updateEmployee = () => {
   });
 };
 // delete employee
-const deleteEmployee = () => {
-  db.query(`SELECT id, first_name, last_name FROM employee`).then((results) => {
-    const choices = results.map((emp) => {
-      return {
-        name: `${emp.first_name} ${emp.last_name}`,
-        value: emp.id,
-      };
-    });
-    const deleteEmployeePrompt = [
-      {
-        name: "employee_id",
-        message: "Which employee would you like to delete?",
-        type: "list",
-        choices,
-      },
-    ];
-    inquirer.prompt(deleteEmployeePrompt).then((results) => {
-      console.log("RESULTS --- ", results);
-      db.query(`DELETE FROM employee WHERE id='${results.employee_id}'`);
-      setTimeout(start, 3000);
-    });
-  });
-};
+// const deleteEmployee = () => {
+//   db.query(`SELECT id, first_name, last_name FROM employee`).then((results) => {
+//     const choices = results.map((emp) => {
+//       return {
+//         name: `${emp.first_name} ${emp.last_name}`,
+//         value: emp.id,
+//       };
+//     });
+//     const deleteEmployeePrompt = [
+//       {
+//         name: "employee_id",
+//         message: "Which employee would you like to delete?",
+//         type: "list",
+//         choices,
+//       },
+//     ];
+//     inquirer.prompt(deleteEmployeePrompt).then((results) => {
+//       console.log("RESULTS --- ", results);
+//       db.query(`DELETE FROM employee WHERE id='${results.employee_id}'`);
+//       setTimeout(start, 3000);
+//     });
+//   });
+// };
 
 // Start Menu Prompt
 function start() {
@@ -255,8 +257,8 @@ function start() {
         return addEmployee();
       case "Update Employee":
         return updateEmployee();
-      case "Delete Employee":
-        return deleteEmployee();
+      // case "Delete Employee":
+      //   return deleteEmployee();
       case "Exit":
         console.log("Goodbye!");
         return process.exit();
