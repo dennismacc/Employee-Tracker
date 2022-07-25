@@ -42,6 +42,6 @@ This application allows business owners to interact with information stored in d
 
 ## Contact 📞
  If you have any questions about this project please reach out for more information!
-  - GitHub: [dennismacc](https//:github.com/dennismacc)
+  - GitHub: [dennismacc](https://github.com/dennismacc)
   - Email: dennis.maccarthy@gmail.com
     
