@@ -20,7 +20,11 @@ This application will allow business owners to manage their company's employee d
 
 ## Preview 📸
 CLI Application Preview:
-https://user-images.githubusercontent.com/100378792/180917012-a3609150-c7fb-4d6c-8df3-65492e3f3ae6.mov
+
+
+https://user-images.githubusercontent.com/100378792/180917458-1817dc67-954c-4864-b946-5f7250ca0c40.mov
+
+
 
 MySQL Database Schema:
 ![alt text](./Assets/hw12_db.jpg)
