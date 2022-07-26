@@ -74,7 +74,7 @@ const addRole = () => {
     ])
     .then((answer) => {
       db.query(
-        `INSERT INTO roles (title, salary, department_id) VALUES ('${answer.role_title}', '${answer.role_salary}', '${answer.role_department_id}')`
+        `INSERT INTO role (title, salary, department_id) VALUES ('${answer.role_title}', '${answer.role_salary}', '${answer.role_department_id}')`
       );
       console.log("ROLE HAS BEEN ADDED TO THE DATABASE");
       setTimeout(start, 3000);

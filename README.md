@@ -3,6 +3,7 @@
 
 This Employee Tracker application is a command-line application that can be used to manage a company's employee database, using Node.js, Inquirer, and MySQL. It allows users to easily view and interact with information stored in databases, and manage the departments, roles, and employees in a company.
 
+
 ## Table of Contents 📚  
   - [Description](#description)
   - [Preview](#preview)
@@ -12,11 +13,17 @@ This Employee Tracker application is a command-line application that can be used
   - [Contributing](#contributing)
   - [Contact](#contact)
 
+
 ## Description 📝
 This application will allow business owners to manage their company's employee database, using Node.js, Inquirer, and MySQL. Within the database schema, we track the company's departments, roles, and employees and through the application, the business owner can easily view and interact with the information stored in the database using the command line. The command line application is run using Node.js and Inquirer and will allow the business owner to view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employees information. These functions allow for the business owner to quickly and easily manage the company's information from one place.
 
 
 ## Preview 📸
+CLI Application Preview:
+![alt text](---)
+
+MySQL Database Schema:
+![alt text](./Assets/hw12_db.jpg)
 
 
 ## Installation 📥
@@ -31,6 +38,7 @@ This application will allow business owners to manage their company's employee d
 
 ## Usage 🖥
 This application allows business owners to interact with information stored in databases so that they can manage the departments, roles, and employees in their company and help them organize and plan their business more efficiently and effectively.
+
 
 ## License ⚙️
  This project is licensed under MIT
